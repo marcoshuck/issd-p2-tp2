@@ -20,4 +20,4 @@ Se retornará incorrecto si no se verifica ninguno de los casos anteriores.
 
 ## Maqueta de Interfaz de Usuario
 
-<img align="center"  src="https://raw.githubusercontent.com/marcoshuck/issd-p2-tp1/master/assets/ui.png">
+<img align="center"  src="https://raw.githubusercontent.com/marcoshuck/issd-p2-tp2/master/assets/ui.png">
