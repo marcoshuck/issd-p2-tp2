@@ -7,80 +7,80 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-class ApplicationTest {
+class StoreTest {
     @Test
     public void TestInitializeNewApplication() {
-        Application application = new Application();
-        Assertions.assertNotNull(application);
+        Store store = new Store();
+        Assertions.assertNotNull(store);
     }
 
     @Test
     public void TestInitializeApplicationWithOven() {
         Oven oven = new Oven();
-        Application application = new Application(oven);
-        Assertions.assertNotNull(application);
+        Store store = new Store(oven);
+        Assertions.assertNotNull(store);
     }
 
     @Test
     public void TestIncrementTemperatureBy10() {
         Oven oven = new Oven();
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        Assertions.assertEquals(0.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(0.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
 
-        application.incrementTemperature();
+        store.incrementTemperature();
 
-        Assertions.assertEquals(10.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(10.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
     }
 
     @Test
     public void TestDecrementTemperatureBy10() {
         Oven oven = new Oven();
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        Assertions.assertEquals(0.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(0.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
 
-        application.incrementTemperature();
+        store.incrementTemperature();
 
-        Assertions.assertEquals(10.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(10.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
 
-        application.decrementTemperature();
+        store.decrementTemperature();
 
-        Assertions.assertEquals(0.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(0.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
     }
 
     @Test
     public void TestIncrementTemperatureBy10WhenTemperatureIs100() {
         Oven oven = new Oven();
         oven.setTemperature(100.0);
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        Assertions.assertEquals(100.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(100.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
 
-        application.incrementTemperature();
+        store.incrementTemperature();
 
-        Assertions.assertEquals(100.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(100.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
     }
 
     @Test
     public void TestDecrementTemperatureBy10WhenTemperatureIsZero() {
         Oven oven = new Oven();
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        Assertions.assertEquals(0.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(0.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
 
-        application.decrementTemperature();
+        store.decrementTemperature();
 
-        Assertions.assertEquals(0.0, application.getTemperature());
-        Assertions.assertEquals(oven.getTemperature(), application.getTemperature());
+        Assertions.assertEquals(0.0, store.getTemperature());
+        Assertions.assertEquals(oven.getTemperature(), store.getTemperature());
     }
 
     @Test
@@ -93,15 +93,15 @@ class ApplicationTest {
         Oven oven = new Oven(precincts);
         oven.setTemperature(50);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 1");
+        store.turnPrecinctOn("Recinto 1");
 
-        String status = application.getStatus();
+        String status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
 
         oven.setTemperature(40);
-        status = application.getStatus();
+        status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
     }
 
@@ -115,11 +115,11 @@ class ApplicationTest {
         Oven oven = new Oven(precincts);
         oven.setTemperature(60);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 1");
+        store.turnPrecinctOn("Recinto 1");
 
-        String status = application.getStatus();
+        String status = store.getStatus();
         Assertions.assertEquals("Incorrecto", status);
     }
 
@@ -133,15 +133,15 @@ class ApplicationTest {
         Oven oven = new Oven(precincts);
         oven.setTemperature(80);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 2");
+        store.turnPrecinctOn("Recinto 2");
 
-        String status = application.getStatus();
+        String status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
 
         oven.setTemperature(45);
-        status = application.getStatus();
+        status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
     }
 
@@ -155,11 +155,11 @@ class ApplicationTest {
         Oven oven = new Oven(precincts);
         oven.setTemperature(81);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 2");
+        store.turnPrecinctOn("Recinto 2");
 
-        String status = application.getStatus();
+        String status = store.getStatus();
         Assertions.assertEquals("Incorrecto", status);
     }
 
@@ -173,19 +173,19 @@ class ApplicationTest {
         Oven oven = new Oven(precincts);
         oven.setTemperature(0);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 3");
+        store.turnPrecinctOn("Recinto 3");
 
-        String status = application.getStatus();
+        String status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
 
         oven.setTemperature(100);
-        status = application.getStatus();
+        status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
 
         oven.setTemperature(50);
-        status = application.getStatus();
+        status = store.getStatus();
         Assertions.assertEquals("Correcto", status);
     }
 
@@ -198,9 +198,9 @@ class ApplicationTest {
 
         Oven oven = new Oven(precincts);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        Precinct precinct = application.getEnabledPrecinct();
+        Precinct precinct = store.getEnabledPrecinct();
         Assertions.assertNull(precinct);
     }
 
@@ -213,11 +213,11 @@ class ApplicationTest {
 
         Oven oven = new Oven(precincts);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 2");
+        store.turnPrecinctOn("Recinto 2");
 
-        Precinct precinct = application.getEnabledPrecinct();
+        Precinct precinct = store.getEnabledPrecinct();
         Assertions.assertNotNull(precinct);
         Assertions.assertEquals("Recinto 2", precinct.getName());
     }
@@ -231,11 +231,11 @@ class ApplicationTest {
 
         Oven oven = new Oven(precincts);
 
-        Application application = new Application(oven);
+        Store store = new Store(oven);
 
-        application.turnPrecinctOn("Recinto 2");
+        store.turnPrecinctOn("Recinto 2");
 
-        String precinctName = application.getEnabledPrecinctName();
+        String precinctName = store.getEnabledPrecinctName();
         Assertions.assertNotNull(precinctName);
         Assertions.assertEquals("Recinto 2", precinctName);
     }

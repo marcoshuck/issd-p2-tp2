@@ -3,14 +3,14 @@ package application;
 import domain.oven.Oven;
 import domain.precinct.Precinct;
 
-public class Application {
+public class Store {
     private final Oven oven;
 
-    public Application(Oven oven) {
+    public Store(Oven oven) {
         this.oven = oven;
     }
 
-    public Application() {
+    public Store() {
         this.oven = new Oven();
     }
 
