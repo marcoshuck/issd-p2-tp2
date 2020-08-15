@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class Oven {
     private ArrayList<Precinct> precincts;
+    private double temperature;
 
     public Oven(ArrayList<Precinct> precincts) {
         this.precincts = new ArrayList<>(precincts);
@@ -26,5 +27,26 @@ public class Oven {
 
     public ArrayList<Precinct> getPrecinctsArrayList() {
         return this.precincts;
+    }
+
+    public void appendPrecinct(Precinct precinct) {
+        this.precincts.add(precinct);
+    }
+
+    public Precinct getPrecinctByName(String name) {
+        for (Precinct p : this.precincts) {
+            if (p.getName() == name) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public double getTemperature() {
+        return this.temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 }

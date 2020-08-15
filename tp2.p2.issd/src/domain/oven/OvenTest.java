@@ -31,12 +31,14 @@ class OvenTest {
     public void TestGetPrecinctsAsArray() {
         Oven oven = new Oven();
         Precinct[] precincts = oven.getPrecinctsArray();
+        Assertions.assertNotNull(precincts);
     }
 
     @Test
     public void TestGetPrecinctsAsArrayList() {
         Oven oven = new Oven();
         ArrayList<Precinct> precincts = oven.getPrecinctsArrayList();
+        Assertions.assertNotNull(precincts);
     }
 
     @Test
@@ -68,5 +70,58 @@ class OvenTest {
         ArrayList<Precinct> result = oven.getPrecinctsArrayList();
 
         Assertions.assertEquals(precincts, result);
+    }
+
+    @Test
+    public void TestAppendPrecinctsToOven() {
+        ArrayList<Precinct> precincts = new ArrayList<>();
+        precincts.add(new Precinct("Recinto 1"));
+        precincts.add(new Precinct("Recinto 2"));
+        precincts.add(new Precinct("Recinto 3"));
+
+        Oven oven = new Oven(precincts);
+
+        oven.appendPrecinct(new Precinct("Reciento 4"));
+    }
+
+    @Test
+    public void TestGetOnePrecinctByNameReturnsValue() {
+        ArrayList<Precinct> precincts = new ArrayList<>();
+        precincts.add(new Precinct("Recinto 1"));
+        precincts.add(new Precinct("Recinto 2"));
+        precincts.add(new Precinct("Recinto 3"));
+
+        Oven oven = new Oven(precincts);
+
+        Precinct precinct = oven.getPrecinctByName("Recinto 1");
+        Assertions.assertNotNull(precinct);
+        Assertions.assertEquals("Recinto 1", precinct.getName());
+    }
+
+    @Test
+    public void TestGetOnePrecinctReturnsNull() {
+        ArrayList<Precinct> precincts = new ArrayList<>();
+        precincts.add(new Precinct("Recinto 1"));
+        precincts.add(new Precinct("Recinto 2"));
+        precincts.add(new Precinct("Recinto 3"));
+
+        Oven oven = new Oven(precincts);
+
+        Precinct precinct = oven.getPrecinctByName("Recinto X");
+        Assertions.assertNull(precinct);
+    }
+
+    @Test
+    public void TestGetTemperature() {
+        Oven oven = new Oven();
+        Assertions.assertEquals(0.0, oven.getTemperature());
+    }
+
+    @Test
+    public void TestSetTemperature() {
+        Oven oven = new Oven();
+        double temperature = 50.0;
+        oven.setTemperature(temperature);
+        Assertions.assertEquals(temperature, oven.getTemperature());
     }
 }
