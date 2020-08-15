@@ -1,6 +1,5 @@
 package domain;
 
-
 public class Precinct {
     private boolean enabled;
     private String name;
@@ -8,6 +7,11 @@ public class Precinct {
     public Precinct(String name, boolean enabled) {
         this.name = name;
         this.enabled = enabled;
+    }
+
+    public Precinct(String name) {
+        this.name = name;
+        this.enabled = false;
     }
 
     public boolean isEnabled() {
@@ -22,7 +26,7 @@ public class Precinct {
         return this.name;
     }
 
-    public void setName(String s) {
-        this.name = s;
+    public void setName(String name) {
+        this.name = name;
     }
 }

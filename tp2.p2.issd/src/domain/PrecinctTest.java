@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PrecinctTest {
+class PrecinctTest {
     private Precinct precinct;
 
     @BeforeEach
@@ -14,13 +14,18 @@ public class PrecinctTest {
     }
 
     @Test
+    public void TestCreateNewPrecinctWithOnlyName() {
+        this.precinct = new Precinct("Recinto");
+    }
+
+    @Test
     public void TestIfIsPrecinctEnabledAfterCreation() {
         Precinct precinct = new Precinct("Recinto", false);
         Assertions.assertFalse(precinct.isEnabled());
     }
 
     @Test
-    public void TestPrecinctEnabledAfterCreationWithDefaultValue() {
+    public void TestPrecinctEnabledAfterCreationWithEnabledSetToTrue() {
         Precinct precinct = new Precinct("Recinto", true);
         Assertions.assertTrue(precinct.isEnabled());
     }
