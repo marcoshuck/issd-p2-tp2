@@ -1,8 +1,9 @@
-package domain;
+package domain.oven;
+
+import domain.precinct.Precinct;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Set;
 
 public class Oven {
     private ArrayList<Precinct> precincts;

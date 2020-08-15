@@ -1,4 +1,4 @@
-package domain;
+package domain.precinct;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

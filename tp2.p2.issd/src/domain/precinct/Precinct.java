@@ -1,4 +1,4 @@
-package domain;
+package domain.precinct;
 
 public class Precinct {
     private boolean enabled;
