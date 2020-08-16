@@ -239,4 +239,44 @@ class StoreTest {
         Assertions.assertNotNull(precinctName);
         Assertions.assertEquals("Recinto 2", precinctName);
     }
+
+    @Test
+    public void TestGetPrecinctList() {
+        ArrayList<Precinct> precincts = new ArrayList<>();
+        precincts.add(new Precinct("Recinto 1", false));
+        precincts.add(new Precinct("Recinto 2", false));
+        precincts.add(new Precinct("Recinto 3", false));
+
+        Oven oven = new Oven(precincts);
+
+        Store store = new Store(oven);
+
+        ArrayList<Precinct> result = store.getPrecinctList();
+
+        Assertions.assertEquals(precincts, result);
+    }
+
+    @Test
+    public void TestResetValues() {
+        ArrayList<Precinct> precincts = new ArrayList<>();
+        precincts.add(new Precinct("Recinto 1", false));
+        precincts.add(new Precinct("Recinto 2", false));
+        precincts.add(new Precinct("Recinto 3", false));
+
+        Oven oven = new Oven(precincts);
+
+        Store store = new Store(oven);
+
+        store.incrementTemperature();
+        store.turnPrecinctOn("Recinto 1");
+
+        store.reset();
+
+        for (Precinct p: precincts) {
+            Assertions.assertEquals(false, p.isEnabled());
+        }
+
+        Assertions.assertEquals(0, store.getTemperature());
+
+    }
 }

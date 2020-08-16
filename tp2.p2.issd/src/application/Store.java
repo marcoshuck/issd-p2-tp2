@@ -3,6 +3,8 @@ package application;
 import domain.oven.Oven;
 import domain.precinct.Precinct;
 
+import java.util.ArrayList;
+
 public class Store {
     private final Oven oven;
 
@@ -90,5 +92,16 @@ public class Store {
             return p.getName();
         }
         return null;
+    }
+
+    public ArrayList<Precinct> getPrecinctList() {
+        return this.oven.getPrecinctsArrayList();
+    }
+
+    public void reset() {
+        this.oven.setTemperature(0);
+        for (Precinct p: this.oven.getPrecinctsArray()) {
+            p.setEnabled(false);
+        }
     }
 }
