@@ -39,5 +39,7 @@ public class TemperatureSlider extends JPanel implements ComponentUpdater, Compo
 
         int positionX = (int)this.position;
         g.drawLine(positionX, 0, positionX, height);
+        g.drawLine(positionX+1, 0, positionX+1, height);
+        g.drawLine(positionX+2, 0, positionX+2, height);
     }
 }

@@ -8,7 +8,7 @@ public class TemperatureDisplay extends JLabel implements ComponentUpdater, Comp
     private final Store store;
 
     public TemperatureDisplay(Store store) {
-        super("", SwingConstants.CENTER);
+        super("0.0 ºC", SwingConstants.CENTER);
         this.store = store;
     }
 
@@ -18,7 +18,7 @@ public class TemperatureDisplay extends JLabel implements ComponentUpdater, Comp
     }
 
     private void resetTemperature() {
-        this.setText("");
+        this.setText("0.0 ºC");
     }
 
     @Override
