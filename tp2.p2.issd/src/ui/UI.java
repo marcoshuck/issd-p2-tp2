@@ -30,13 +30,13 @@ public class UI extends JFrame {
     public UI(Store store) {
         super();
         this.store = store;
-        this.mainPanel = new JPanel(new GridLayout(1, 2));
-        this.leftPanel = new JPanel(new GridLayout(4, 1));
-        this.rightPanel = new JPanel(new GridLayout(6, 1));
+        this.mainPanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        this.leftPanel = new JPanel(new GridLayout(4, 1, 0, 10));
+        this.rightPanel = new JPanel(new GridLayout(6, 1, 0, 10));
 
-        this.temperatureDisplayPanel = new JPanel(new GridLayout(1, 2));
-        this.temperatureGainPanel = new JPanel(new GridLayout(1, 2));
-        this.controlPanel = new JPanel(new GridLayout(1, 2));
+        this.temperatureDisplayPanel = new JPanel(new GridLayout(1, 2, 20, 0));
+        this.temperatureGainPanel = new JPanel(new GridLayout(1, 2, 20, 0));
+        this.controlPanel = new JPanel(new GridLayout(1, 2, 20, 0));
 
         this.initialize();
 
@@ -55,6 +55,7 @@ public class UI extends JFrame {
         this.setContentPane(this.mainPanel);
         this.setBounds(0, 0, 800, 600);
         this.setTitle("Horno eléctrico");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     private void initialize() {
@@ -82,7 +83,7 @@ public class UI extends JFrame {
     }
 
     private void setupTemperatureSlider() {
-        this.temperatureSlider = new TemperatureSlider(store, 75, 200, 100);
+        this.temperatureSlider = new TemperatureSlider(store, 75, 300, 100);
         this.leftPanel.add(this.temperatureSlider);
     }
 
